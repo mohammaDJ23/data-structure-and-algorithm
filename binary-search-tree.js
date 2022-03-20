@@ -1,3 +1,14 @@
+/**
+ *
+ *           5
+ *      2         10
+ *    1   3     9   12
+ *
+ * left nodes are less than the root
+ * right nodes are grater than the root
+ *
+ */
+
 class Bst {
   constructor(num = null) {
     this.value = num;
