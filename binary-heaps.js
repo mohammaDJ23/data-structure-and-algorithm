@@ -116,7 +116,7 @@ class PriorityQueue {
       const parentIndex = Math.floor((index - 1) / 2);
       const parent = this.values[parentIndex];
 
-      if (parent.priority <= element.priority) {
+      if (parent.priority >= element.priority) {
         this.values[parentIndex] = this.values[index];
         this.values[index] = parent;
         index = parentIndex;
@@ -144,16 +144,32 @@ class PriorityQueue {
     const leftElement = this.values[leftChildIndex];
     const rightElement = this.values[rightChildIndex];
 
-    if (leftElement?.priority > parent.priority && leftElement?.priority > rightElement?.priority) {
+    if (leftElement?.priority < parent.priority && leftElement?.priority < rightElement?.priority) {
       this.values[parentIndex] = leftElement;
       this.values[leftChildIndex] = parent;
       this.sinkDown(leftChildIndex);
     }
 
-    if (rightElement?.priority > parent?.priority && rightElement?.priority > leftElement?.priority) {
+    if (rightElement?.priority < parent?.priority && rightElement?.priority < leftElement?.priority) {
       this.values[parentIndex] = rightElement;
       this.values[rightChildIndex] = parent;
       this.sinkDown(rightChildIndex);
     }
   }
 }
+
+const p = new PriorityQueue();
+
+p.enqueue('Hey', 2);
+p.enqueue('Hey', 3);
+p.enqueue('Hey', 6);
+p.enqueue('Hey', 1);
+p.enqueue('Hey', 7);
+p.enqueue('Hey', 12);
+p.enqueue('Hey', 5);
+
+// console.log(p.values);
+// console.log(p.dequeue(12));
+// console.log(p.values);
+
+module.exports = PriorityQueue;
