@@ -32,8 +32,6 @@ function longestPalindromicSubstring(s) {
     isPalindrome(i, i + 1);
   }
 
-  console.log(longest);
-
   return longest;
 }
 
