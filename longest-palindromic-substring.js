@@ -14,7 +14,7 @@
  */
 
 function longestPalindromicSubstring(s) {
-  let longest = s[0];
+  let longest = '';
 
   function isPalindrome(l, r) {
     while (l >= 0 && r < s.length && s[l] === s[r]) {
